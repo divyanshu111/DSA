@@ -14,13 +14,14 @@ class Solution {
             int mid=(high+low)/2;
             int x=mid;
             for(int i=1;i<n;i++){
+                if(x > m) break;// this is optimisation 
                 x=mid*x;
             }
             if(x<m){
-                low=mid+1;
+                low=mid+1;// moving search space because we are not going to reiterate over same number again. If  that would be the case answer would be mid
             }
             else if(x>m){
-                high=mid-1;
+                high=mid-1;// same as low limiting the search space
             }
             else{
                 ans=mid;
